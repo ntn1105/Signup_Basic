@@ -1,0 +1,75 @@
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: rgba(250, 243, 234, 0.705);
+    font-family: Arial, Helvetica, sans-serif;
+}
+.Signup_form{
+    width: 500px;
+    height: 800px;
+    background-color: white;
+    border-radius: 10px;
+    flex-direction: column;
+    padding: 20px;
+}
+.Signup_form_name,
+.Signup_form_email,
+.Signup_form_password,
+.Signup_form_check-password {
+    display: block;
+   
+    padding: 20px;
+}
+.form-label {
+    display: block;
+}
+.form-input{
+    display: block;
+    width: 100%;
+    padding: 5px;
+    margin-top: 5px;
+  
+
+}
+.form-input::placeholder {
+    opacity: 0.4; 
+    color: #000; 
+}
+.Tittle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 15px 0;
+}
+.Tittle p{
+    margin-top: 25px;
+    
+}
+.form-input{
+    height: 40px;
+    
+}
+.Signup button{
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+    width: 100%;
+    height: 40px;
+    align-items: center;
+    background-color: rgba(39, 151, 39, 0.781);
+    outline: none;
+    border: none;
+    border-radius: 15px;
+    color: white;
+    
+}
+.form-message{
+    display: block;
+    margin-top: 10px;
+    font-size: 14px;
+    color: brown;
+}
+
