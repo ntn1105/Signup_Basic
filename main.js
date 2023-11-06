@@ -30,9 +30,11 @@ for (let i = 0; i < formInputs.length; i++) {
 }
 
 signup.addEventListener("click", function (e) {
+  let allInputsFilled = true;
   for (let i = 0; i < formInputs.length; i++) {
     if (formInputs[i].value.trim() === "") {
       formMessages[i].textContent = messageSource[i];
+      allInputsFilled = false;
     } else {
       formMessages[i].textContent = "";
     }
@@ -40,10 +42,16 @@ signup.addEventListener("click", function (e) {
 
   if (formInputs[2].value !== formInputs[3].value) {
     formMessages[3].textContent = messageSource[4];
+    allInputsFilled = false;
   } else {
     formMessages[3].textContent = "";
   }
+
+  if (allInputsFilled) {
+    signup.innerText = "Đăng ký thành công";
+  }
 });
+
 
 formInputs[0].addEventListener("input", function (e) {
   if (/\d/.test(e.target.value)) {
