@@ -76,3 +76,18 @@ signup.addEventListener("click", function (e) {
     signup.innerText = "Đăng ký không thành công";
   }
 });
+  
+formInputs[0].addEventListener("blur", function (e) {
+  if (e.target.value.trim() == "") {
+      formMessages[0].textContent = messageSource[0];
+  } else {
+      formMessages[0].textContent = "";
+  }
+  var words = e.target.value.toLowerCase().split(' ');
+  for (var i = 0; i < words.length; i++) {
+      words[i] = words[i].charAt(0).toUpperCase() + words[i].substring(1);//lấy từ đầu viết hoa sau đó nối với với các phần tử còn lại 
+  }
+  e.target.value = words.join(' ');
+});
+
+
