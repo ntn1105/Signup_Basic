@@ -31,10 +31,15 @@ for (let i = 0; i < formInputs.length; i++) {
 
 signup.addEventListener("click", function (e) {
   let allInputsFilled = true;
+  let successfulRegistration = true;
+  let validEmailFormat = true;
+  let validNameFormat = true;
+
   for (let i = 0; i < formInputs.length; i++) {
     if (formInputs[i].value.trim() === "") {
       formMessages[i].textContent = messageSource[i];
       allInputsFilled = false;
+      successfulRegistration = false;
     } else {
       formMessages[i].textContent = "";
     }
@@ -43,44 +48,31 @@ signup.addEventListener("click", function (e) {
   if (formInputs[2].value !== formInputs[3].value) {
     formMessages[3].textContent = messageSource[4];
     allInputsFilled = false;
+    successfulRegistration = false;
   } else {
     formMessages[3].textContent = "";
   }
 
-  if (allInputsFilled) {
-    signup.innerText = "Đăng ký thành công";
+  var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(formInputs[1].value)) {
+    formMessages[1].textContent = "Vui lòng nhập đúng định dạng email";
+    validEmailFormat = false;
+    successfulRegistration = false;
+  } else {
+    formMessages[1].textContent = "";
   }
-});
 
-
-formInputs[0].addEventListener("input", function (e) {
-  if (/\d/.test(e.target.value)) {
+  if (/\d/.test(formInputs[0].value)) {
     formMessages[0].textContent = "Tên không được chứa kí tự số";
+    validNameFormat = false;
+    successfulRegistration = false;
   } else {
     formMessages[0].textContent = "";
   }
-});
-formInputs[0].addEventListener("blur", function (e) {
-  if (e.target.value.trim() == "") {
-      formMessages[0].textContent = messageSource[0];
-  } else {
-      formMessages[0].textContent = "";
-  }
-  var words = e.target.value.toLowerCase().split(' ');
-  for (var i = 0; i < words.length; i++) {
-      words[i] = words[i].charAt(0).toUpperCase() + words[i].substring(1);//lấy từ đầu viết hoa sau đó nối với với các phần tử còn lại 
-  }
-  e.target.value = words.join(' ');
-});
 
-var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Biểu thức chính quy kiểm tra địa chỉ email
-
-formInputs[1].addEventListener("blur", function (e) {
-  if (e.target.value.trim() === "") {
-    formMessages[1].textContent = messageSource[1];
-  } else if (!emailRegex.test(e.target.value)) {
-    formMessages[1].textContent = "Vui lòng nhập đúng định dạng email";
+  if (allInputsFilled && successfulRegistration && validEmailFormat && validNameFormat) {
+    signup.innerText = "Đăng ký thành công";
   } else {
-    formMessages[1].textContent = "";
+    signup.innerText = "Đăng ký không thành công";
   }
 });
