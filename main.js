@@ -89,5 +89,18 @@ formInputs[0].addEventListener("blur", function (e) {
   }
   e.target.value = words.join(' ');
 });
+var showPasswordIcon = document.querySelector('.Signup_form_password i');
+var passwordInputs = document.querySelectorAll('.show_password input');
 
+showPasswordIcon.addEventListener('mousedown', function () {
+  passwordInputs.forEach(function (input) {
+    input.setAttribute('type', 'text');
+  });
+});
+
+showPasswordIcon.addEventListener('mouseup', function () {
+  passwordInputs.forEach(function (input) {
+    input.setAttribute('type', 'password');
+  });
+});
 

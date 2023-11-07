@@ -6,6 +6,8 @@
     <title>Sign up</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
 
 <body>
@@ -24,14 +26,17 @@
             <input class="form-input" type="text" placeholder="VD: ntn1105@gmail.com">
             <span class="form-message"></span>
         </div>
-        <div class="Signup_form_password">
+        <div class="Signup_form_password show_password">
             <label for="" class="form-label">Mật khẩu</label>
-            <input class="form-input" type="text" placeholder="Nhập mật khẩu">
+            <div class="show_password">
+                <input class="form-input" type="password" placeholder="Nhập mật khẩu">
+                <i class="fa-solid fa-eye"></i>
+            </div>
             <span class="form-message"></span>
         </div>
-        <div class="Signup_form_check-password">
+        <div class="Signup_form_check-password show_password">
             <label for="" class="form-label">Nhập lại mật khẩu</label>
-            <input  class="form-input" type="text" placeholder="Nhập lại mật khẩu">
+            <input  class="form-input" type="password" placeholder="Nhập lại mật khẩu">
             <span class="form-message"></span>
         </div>
         <div class="Signup">
